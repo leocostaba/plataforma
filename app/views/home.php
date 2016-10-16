@@ -2,10 +2,8 @@
 include_once "header.php"
 ?>
 
-
-
 <div class="row containe-solid">
-  <h4>Meus Trabalhos   <button type="button" class="btn btn-default pull-right"  value="Input Button" >Adicionar Trabalho</button></h4>  
+  <h4>Meus Trabalhos<button type="button" class="btn btn-default pull-right" value="Input Button">Adicionar Trabalho</button></h4>
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
@@ -14,7 +12,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></li></div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -24,7 +22,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -34,7 +32,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></div>
       </div>
     </div>
   </div>
@@ -50,7 +48,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -60,7 +58,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></div>
       </div>
     </div>
     <div class="col-sm-4 ">
@@ -70,7 +68,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -80,7 +78,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -90,7 +88,7 @@ include_once "header.php"
         <div style="text-align: center;">
           <input type="button" value="button">
         </div>
-        <div class="panel-footer"><small>Comentarios</small></div>
+        <div class="panel-footer"><a href="#">Comentarios</a></div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -105,8 +103,6 @@ include_once "header.php"
     </div>
   </div>
 </div>
-
-
 
 <?php
 include_once "footer.php"
