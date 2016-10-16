@@ -4,8 +4,9 @@ include_once "header.php"
 
 <div class="row text-center">
   <div class="col-md-6"><img style="height: 300px;" src="..\assets\img\pessoas.png" alt="" /></div>
-  <div class="col-md-6">
-      testststs
+  <div class="col-md-6 text-left" style=" padding-left:50px;">
+      <h1 style="color:blue">Quem Somos ? </h1>
+        <p> Somos os melhores em fazer um projeto em uma semana</p>
   </div>
 </div>
 <br><br>
