@@ -9,10 +9,10 @@ if (isset($_POST['email'])) {
         $_SESSION['on'] = true;
         $_SESSION['user'] = $got['id'];
         $_SESSION['id'] = NULL;
-        header('Location: ../views/home');
+        header('Location: ../views/home.php');
     } else {
         $_SESSION['msg'] = "<div class='msg fail'>Opa! Parece que você digitou algo errado.</div>";
-        header('Location: ../views/index?login');
+        header('Location: ../views/index.php?login');
     }
 }
 ?>
