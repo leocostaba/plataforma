@@ -1,45 +1,41 @@
 <?php
-include_once "header.php"
+    include_once "header.php"
 ?>
 
 <div class="row text-center">
-  <div class="col-md-6"><img style="height: 300px;" src="..\assets\img\pessoas.png" alt="" /></div>
-  <div class="col-md-6 text-left" style=" padding-left:50px;">
-      <h1 style="color:blue">Quem Somos ? </h1>
+    <div class="col-md-6"><img style="height: 300px;" src="..\assets\img\pessoas.png" alt="" /></div>
+    <div class="col-md-6 text-left" style=" padding-left:50px;">
+        <h1 style="color:blue">Quem Somos ? </h1>
         <p> Somos os melhores em fazer um projeto em uma semana</p>
-  </div>
+    </div>
 </div>
 <br><br>
 <div class="row text-center">
-  <div class="col-md-6" style="background-color: blue; color: white">
-      <h1>Crie sua conta agora!</h1>
-      <form class="text-left">
-          <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputEmail1">Nome</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nome">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Senha</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Confimar Senha</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirmar Senha">
-          </div>
-          <div class="text-center">
-              <button type="submit" class="btn btn-default">Cadastrar</button>
-              <br>
-              <br>
-          </div>
-      </form>
-  </div>
-  <div class="col-md-6"><img style="height: 300px;" src="..\assets\img\compartilha.png" alt="" /></div>
+    <div class="col-md-6" style="background-color: blue; color: white">
+        <h1>Crie sua conta agora!</h1>
+        <form action="..\controllers\user.php" method="post">
+              <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="nome" class="form-control" name="name">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="text" class="form-control" name="email">
+              </div>
+              <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" name="password">
+              </div>
+              <div class="form-group">
+                <label for="password2">Confirmar Senha:</label>
+                <input type="password" class="form-control" name="password2">
+              </div>
+              <button type="submit" name="action" value="insert" class="btn btn-default">Cadastrar</button>
+            </form>
+    </div>
+    <div class="col-md-6"><img style="height: 300px;" src="..\assets\img\compartilha.png" alt="" /></div>
 </div>
 
 <?php
-include_once "footer.php"
+    include_once "footer.php"
 ?>
