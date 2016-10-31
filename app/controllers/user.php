@@ -7,6 +7,7 @@ try {
     if (isset($_POST)) {
         $action = $_POST['action'];
         $_SESSION['msg'] = 'fail">Você não forneceu as informações obrigatórias.';
+        var_dump($_POST);
         switch ($action) {
             case 'insert':
                 if ($_POST['name']!="" && $_POST['email']!="" && $_POST['password']!="" && ($_POST["password"] == $_POST["password2"])) {

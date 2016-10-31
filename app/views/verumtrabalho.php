@@ -1,11 +1,18 @@
 <?php
-include_once "header.php"
+    session_start();
+    require_once('../helpers/Sessions.php');
+    require_once('../models/Files.php');
+    $file = Files::select($_GET["id"]);
+    on();
+    include_once "header.php"
 ?>
 <div class="container">
-  <h1>Titulo do Trabalho  <div class="text-right"><button type="button" class="btn btn-success">Download </button> </h1>
+    <div class="row">
+        <h1 class="col-sm-10"><?php echo $file->titulo ?>  <div class="text-right"></h1>
+        <a class="pull-right btn btn-success col-sm-2" href="../uploads/files/<?php echo $file->local ?>">Download</a>
+    </div>
     <p>
-
-        Três novidades de uma vez!  Confira o novo site, e garanta sua inscrição em preço promocional de 1º lote. Pela quinta vez estaremos realizando a Semana da Computação da UFBA com grandes atrações do cenário nacional.  Acesse agora: www.semcomp.com.br  E veja a nossa grade de programação, durante os próximos dias mais novidades serão confirmadas fique ligado na nossa página para receber em primeira mão o que vem por aí na melhor semana de computação do Brasil.  #EuVouPraSemcomp
+        <?php echo $file->description ?>
     </p>
     <div class="row text-center">
       <div class="col-md-6">
