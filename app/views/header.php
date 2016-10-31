@@ -29,14 +29,20 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form method="post" action="dagsydgas.php" class="navbar-form navbar-left pull-right">
-            <div class="form-group">
-              <input type="text" class="form-control" id="login" placeholder="Login">
-              <input type="password" class="form-control" id="senha" placeholder="Senha">
-            </div>
-            <button type="submit" class="btn btn-default">Entrar</button>
-            <br><a class="pull-right" href="#">Nova Conta</a>
-          </form>
+            <?php  if (!isset($_SESSION['on'])) { ?>
+                <form method="post" action="../controllers/login.php" class="navbar-form navbar-left pull-right" style="">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="email" placeholder="Login">
+                    <input type="password" class="form-control" name="password" placeholder="Senha">
+                  </div>
+                  <button type="submit" class="btn btn-default">Entrar</button>
+                  <br><a class="pull-right" href="#">Nova Conta</a>
+                </form>
+            <?php } else { ?>
+                <a href="../controllers/logout.php" class="btn btn-default pull-right">Sair</a>
+            <?php }
+
+            ?>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
