@@ -2,7 +2,9 @@
     session_start();
     require_once('../helpers/Sessions.php');
     require_once('../models/Files.php');
+    require_once('../models/comments.php');
     $file = Files::select($_GET["id"]);
+    $comentarios = Comentarios::selectAll($_GET['id']);
     on();
     include_once "header.php"
 ?>
@@ -20,64 +22,18 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             <span class="glyphicon glyphicon-comment"></span>
-                            Comentários Recentes:
+                             Comentários Recentes:
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <ul class="media-list">
-                            <li class="media">
-                                <div class="media-left">
-                                    <img src="http://placehold.it/60x60" class="img-circle">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">
-                                        Leonardo
-                                        <br>
-                                        <small>
-                                            Comentou em <a href="#">Cartola</a>
-                                        </small>
-                                    </h4>
-                                    <p>
-                                        Vou marcar 100 pts
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <img src="http://placehold.it/60x60" class="img-circle">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">
-                                        Ramon
-                                        <br>
-                                        <small>
-                                            Comentou em <a href="#">Engenharia e</a>
-                                        </small>
-                                    </h4>
-                                    <p>
-                                        Professor Ivan....
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                   <img src="http://placehold.it/60x60" class="img-circle">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">
-                                        Joevan
-                                        <br>
-                                        <small>
-                                            Comentou em <a href="#">UFBA</a>
-                                        </small>
-                                    </h4>
-                                    <p>
-                                        Vai ter greve...
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn btn-default btn-block">Mais Eventos »</a>
+                        <?php foreach($comentarios as $comentario) { ?>
+                            <div class="text-left">
+                                <h5><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <?php echo $comentario->name; ?></h5>
+                                <p>
+                                    <?php echo $comentario->comentario; ?>
+                                </p>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
       </div>
@@ -87,12 +43,15 @@
 
 
   <div class="col-md-6" >
-      <label for="exampleInputPassword1">Comentar:</label>
-      <textarea  class="form-control" id="exampleInputPassword1" ></textarea>
-      <br><br>
-      <div class="row text-center">
-        <button type="button" class="btn btn-info">Enviar</button>
-      </div>
+      <form class="" action="../controllers/comentario.php" method="post">
+          <label for="exampleInputPassword1">Comentar:</label>
+          <textarea  class="form-control" name="comentario" ></textarea>
+          <input type="hidden" name="id_file" value="<?php echo $_GET['id'] ?>">
+          <br><br>
+          <div class="row text-center">
+              <button type="submit" name="action" value="insert" class="btn btn-info">Enviar</button>
+          </div>
+      </form>
       </div>
 
     </div>

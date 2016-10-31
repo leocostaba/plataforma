@@ -4,33 +4,34 @@
     } catch (Exception $e) {
         echo($e->getMessage());
     }
-class User extends Connect {
+class Comentarios extends Connect {
     public $id;
-    public $conteudo;
-    public $data;
-    public $horario;
+    public $comentario;
+    public $id_user;
+    public $id_file;
+
     function __construct($attributes = array()) {
         if (!empty($attributes)) {
             $this->id = array_key_exists('id', $attributes) ? $attributes['id'] : null;
-            $this->conteudo = array_key_exists('conteudo', $attributes) ? $attributes['conteudo'] : null;
-            $this->data = array_key_exists('data', $attributes) ? $attributes['data'] : null;
-            $this->horario = array_key_exists('horario', $attributes) ? $attributes['horario'] : null;
+            $this->comentario = array_key_exists('comentario', $attributes) ? $attributes['comentario'] : null;
+            $this->id_user = array_key_exists('id_user', $attributes) ? $attributes['id_user'] : null;
+            $this->id_file = array_key_exists('id_file', $attributes) ? $attributes['id_file'] : null;
         }
     }
     public function insert() {
         $pdo = static::start();
-        $sth = $pdo->prepare("INSERT INTO users (conteudo, data, horario) VALUES (conteudo, data, :horario)");
-        $sth->BindValue(':conteudo', $this->conteudo, PDO::PARAM_STR);
-        $sth->BindValue(':data', $this->data, PDO::PARAM_STR);
-        $sth->BindValue(':horario', $this->horario, PDO::PARAM_STR);
+        $sth = $pdo->prepare("INSERT INTO comentarios (comentario, id_file, id_user) VALUES (:comentario, :id_file, :id_user)");
+        $sth->BindValue(':comentario', $this->comentario, PDO::PARAM_STR);
+        $sth->BindValue(':id_file', $this->id_file, PDO::PARAM_INT);
+        $sth->BindValue(':id_user', $this->id_user, PDO::PARAM_INT);
         return $sth->execute();
     }
-    public function select() {
+    public function selectAll($file) {
         $pdo = static::start();
-        $sth = $pdo->prepare("SELECT id, name FROM users WHERE id=:id LIMIT 1");
-        $sth->BindValue(':id', $this->id, PDO::PARAM_INT);
+        $sth = $pdo->prepare("SELECT c.comentario, u.name FROM comentarios c INNER JOIN users u ON u.id = c.id_user WHERE c.id_file = :id_file ORDER BY c.id DESC");
+        $sth->BindValue(':id_file', $file, PDO::PARAM_INT);
         $sth->execute();
-        return $sth->fetch(PDO::FETCH_OBJ);
+        return $sth->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function delete() {
