@@ -3,6 +3,7 @@
     require_once('../helpers/Sessions.php');
     on();
     require_once('../models/Files.php');
+    require_once('../models/comments.php');
     $files1 = files::selectById($_SESSION['user']);
     $files2 = files::selectLasts();
     include_once "header.php"
@@ -20,7 +21,8 @@
         <div style="text-align: center;">
           <a class="btn btn-primary" style="margin:10px;" href="verumtrabalho.php?id=<?php echo $file1->id ?>">+ informações</a>
         </div>
-        <div class="panel-footer"><a href="#">Comentarios</a></li></div>
+        <?php $comentario = Comentarios::selectAll($file1->id); ?>
+        <div class="panel-footer"><a href="#"> <?php echo count($comentario); ?> Comentarios</a></li></div>
       </div>
     </div>
 
@@ -41,7 +43,8 @@
         <div style="text-align: center; padding:10px;">
          <a class="btn btn-primary" style="margin:10px;" href="verumtrabalho.php?id=<?php echo $file2->id ?>">+ informações</a>
         </div>
-        <div class="panel-footer"><a href="#">Comentarios</a></div>
+        <?php $comentario = Comentarios::selectAll($file2->id); ?>
+        <div class="panel-footer"><a href="#"> <?php echo count($comentario); ?> Comentarios</a></li></div>
       </div>
     </div>
     <?php } ?>
