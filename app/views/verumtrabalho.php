@@ -47,6 +47,7 @@
           <label for="exampleInputPassword1">Comentar:</label>
           <textarea  class="form-control" name="comentario" ></textarea>
           <input type="hidden" name="id_file" value="<?php echo $_GET['id'] ?>">
+          <input type="hidden" name="arquivo_autor" value="<?php echo $file->autor ?>">
           <br><br>
           <div class="row text-center">
               <button type="submit" name="action" value="insert" class="btn btn-info">Enviar</button>

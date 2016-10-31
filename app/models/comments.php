@@ -16,14 +16,16 @@ class Comentarios extends Connect {
             $this->comentario = array_key_exists('comentario', $attributes) ? $attributes['comentario'] : null;
             $this->id_user = array_key_exists('id_user', $attributes) ? $attributes['id_user'] : null;
             $this->id_file = array_key_exists('id_file', $attributes) ? $attributes['id_file'] : null;
+            $this->arquivo_autor = array_key_exists('arquivo_autor', $attributes) ? $attributes['arquivo_autor'] : null;
         }
     }
     public function insert() {
         $pdo = static::start();
-        $sth = $pdo->prepare("INSERT INTO comentarios (comentario, id_file, id_user) VALUES (:comentario, :id_file, :id_user)");
+        $sth = $pdo->prepare("INSERT INTO comentarios (comentario, id_file, id_user, arquivo_autor) VALUES (:comentario, :id_file, :id_user, :arquivo_autor)");
         $sth->BindValue(':comentario', $this->comentario, PDO::PARAM_STR);
         $sth->BindValue(':id_file', $this->id_file, PDO::PARAM_INT);
         $sth->BindValue(':id_user', $this->id_user, PDO::PARAM_INT);
+        $sth->BindValue(':arquivo_autor', $this->arquivo_autor, PDO::PARAM_INT);
         return $sth->execute();
     }
     public function selectAll($file) {
